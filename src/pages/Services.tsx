@@ -106,27 +106,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Retainers */}
-      <section className="card-portfolio mb-12 max-w-4xl mx-auto">
-        <h2 className="mb-6 text-center">Retainer Packages</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-muted/30 border border-border">
-            <h3 className="text-xl mb-2">Essential</h3>
-            <div className="text-3xl font-bold text-accent mb-4">$2,000<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-            <ul className="space-y-3 mb-6">
-              <li className="flex gap-2 text-sm">
-                <span className="text-accent">✓</span>
-                <span>20 hours per month</span>
-              </li>
-              <li className="flex gap-2 text-sm">
-                <span className="text-accent">✓</span>
-                <span>One service focus</span>
-              </li>
-              <li className="flex gap-2 text-sm">
-                <span className="text-accent">✓</span>
-                <span>Weekly check-ins</span>
-              </li>
-            </ul>
+      
             <Link to="/contact">
               <Button className="btn-secondary w-full">Get Started</Button>
             </Link>
