@@ -86,34 +86,64 @@ const About = () => {
           <h2 className="mb-6">Technical Skills</h2>
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg mb-3">Frontend</h3>
-              <div className="flex flex-wrap gap-2">
-                {["React", "TypeScript", "Tailwind CSS", "Next.js", "Vite"].map((skill) => (
-                  <span key={skill} className="px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium border border-accent/20">
-                    {skill}
-                  </span>
+              <h3 className="text-lg mb-4">Frontend</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                {[
+                  { name: "React", icon: "⚛️" },
+                  { name: "TypeScript", icon: "🔷" },
+                  { name: "Tailwind", icon: "🎨" },
+                  { name: "Next.js", icon: "▲" },
+                  { name: "Vite", icon: "⚡" }
+                ].map((skill) => (
+                  <div 
+                    key={skill.name} 
+                    className="card-portfolio p-4 text-center hover:scale-105 transition-transform bg-card border-accent/20"
+                  >
+                    <div className="text-2xl mb-2">{skill.icon}</div>
+                    <div className="text-xs font-medium">{skill.name}</div>
+                  </div>
                 ))}
               </div>
             </div>
             
             <div>
-              <h3 className="text-lg mb-3">Backend</h3>
-              <div className="flex flex-wrap gap-2">
-                {["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"].map((skill) => (
-                  <span key={skill} className="px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium border border-accent/20">
-                    {skill}
-                  </span>
+              <h3 className="text-lg mb-4">Backend</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                {[
+                  { name: "Node.js", icon: "🟢" },
+                  { name: "Express", icon: "🚀" },
+                  { name: "PostgreSQL", icon: "🐘" },
+                  { name: "MongoDB", icon: "🍃" },
+                  { name: "REST APIs", icon: "🔌" }
+                ].map((skill) => (
+                  <div 
+                    key={skill.name} 
+                    className="card-portfolio p-4 text-center hover:scale-105 transition-transform bg-card border-accent/20"
+                  >
+                    <div className="text-2xl mb-2">{skill.icon}</div>
+                    <div className="text-xs font-medium">{skill.name}</div>
+                  </div>
                 ))}
               </div>
             </div>
             
             <div>
-              <h3 className="text-lg mb-3">Web3</h3>
-              <div className="flex flex-wrap gap-2">
-                {["Solidity", "Foundry", "Ethers.js", "Smart Contracts", "DeFi"].map((skill) => (
-                  <span key={skill} className="px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium border border-accent/20">
-                    {skill}
-                  </span>
+              <h3 className="text-lg mb-4">Web3</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                {[
+                  { name: "Solidity", icon: "💎" },
+                  { name: "Foundry", icon: "🔨" },
+                  { name: "Ethers.js", icon: "📡" },
+                  { name: "Smart Contracts", icon: "📜" },
+                  { name: "DeFi", icon: "💰" }
+                ].map((skill) => (
+                  <div 
+                    key={skill.name} 
+                    className="card-portfolio p-4 text-center hover:scale-105 transition-transform bg-card border-accent/20"
+                  >
+                    <div className="text-2xl mb-2">{skill.icon}</div>
+                    <div className="text-xs font-medium">{skill.name}</div>
+                  </div>
                 ))}
               </div>
             </div>
