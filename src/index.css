@@ -9,88 +9,87 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --foreground: 215 25% 20%;
+    
+    --card: 0 0% 98%;
+    --card-foreground: 215 25% 20%;
+    
+    --card-dark: 220 20% 96%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --popover-foreground: 215 25% 20%;
+    
+    --primary: 223 47% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 223 47% 60%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 223 47% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    --accent-orange: 24 95% 53%;
+    --accent-green: 160 84% 39%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 223 47% 60%;
+    
+    --radius: 1.75rem;
+    
+    /* Custom portfolio tokens */
+    --gradient-bg: linear-gradient(135deg, hsl(220, 15%, 98%) 0%, hsl(220, 20%, 95%) 100%);
+    --shadow-sm: 0 1px 3px hsla(223, 47%, 11%, 0.05);
+    --shadow-md: 0 4px 12px hsla(223, 47%, 11%, 0.08);
+    --shadow-lg: 0 20px 40px hsla(223, 47%, 60%, 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+  
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 230 25% 5%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    
+    --card: 230 20% 8%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    
+    --card-dark: 230 25% 5%;
+    
+    --popover: 230 20% 8%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    
+    --primary: 223 47% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 230 20% 14%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --muted: 230 20% 14%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 223 47% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    --accent-orange: 24 95% 53%;
+    --accent-green: 160 84% 39%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 230 20% 12%;
+    --input: 230 20% 12%;
+    --ring: 223 47% 60%;
+    
+    /* Dark mode custom tokens */
+    --gradient-bg: radial-gradient(circle at top, hsl(230, 25%, 10%) 0%, hsl(230, 25%, 5%) 60%, hsl(230, 30%, 3%) 100%);
+    --shadow-sm: 0 1px 3px hsla(0, 0%, 0%, 0.3);
+    --shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.4);
+    --shadow-lg: 0 20px 40px hsla(223, 47%, 60%, 0.3);
   }
 }
 
@@ -98,8 +97,88 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-bg);
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .card-portfolio {
+    @apply bg-card rounded-[28px] border border-border p-6 lg:p-8;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-portfolio:hover {
+    @apply -translate-y-2 border-accent;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .pill-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full;
+    @apply bg-accent/10 border border-accent/20 text-accent text-sm font-medium;
+  }
+  
+  .btn-portfolio {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3;
+    @apply rounded-full font-semibold transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply btn-portfolio bg-accent text-accent-foreground;
+    @apply hover:scale-105 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply btn-portfolio bg-secondary text-secondary-foreground border border-border;
+    @apply hover:bg-accent hover:text-accent-foreground hover:border-accent;
+  }
+  
+  .btn-ghost {
+    @apply btn-portfolio bg-transparent text-muted-foreground;
+    @apply hover:text-foreground hover:bg-muted;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-orange)) 100%);
+  }
+  
+  .grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 }
