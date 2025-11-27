@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
+import { AnimatedBackground } from "./AnimatedBackground";
+import MobileMenu from "./MobileMenu";
+import { Github, Linkedin, Twitter } from "lucide-react";
+import logo from "@/assets/logo.svg";
 
 interface LayoutProps {
   children: ReactNode;
@@ -21,15 +26,15 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen">
+      <AnimatedBackground />
+      
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 backdrop-blur-lg bg-background/80">
         <div className="container-custom">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-orange flex items-center justify-center text-white font-bold text-lg">
-                B
-              </div>
+              <img src={logo} alt="Logo" className="h-10 w-10" />
               <span className="font-bold text-lg hidden sm:inline">Excel Chiemeke · Bynarycraft</span>
             </Link>
 
@@ -52,11 +57,20 @@ const Layout = ({ children }: LayoutProps) => {
             </nav>
 
             {/* CTA */}
-            <Link to="/contact">
-              <Button className="btn-primary">
-                Let's Talk <span className="ml-1">→</span>
-              </Button>
-            </Link>
+            <div className="hidden md:flex items-center gap-4">
+              <ThemeToggle />
+              <Link to="/contact">
+                <Button className="btn-primary">
+                  Let's Talk <span className="ml-1">→</span>
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Mobile Menu */}
+            <div className="flex md:hidden items-center gap-2">
+              <ThemeToggle />
+              <MobileMenu navLinks={navLinks} />
+            </div>
           </div>
         </div>
       </header>
@@ -71,10 +85,24 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="container-custom py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="font-bold text-lg mb-4">Excel Chiemeke</h3>
-              <p className="text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 mb-4">
+                <img src={logo} alt="Logo" className="h-8 w-8" />
+                <h3 className="font-semibold">Excel Chiemeke</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
                 Full-Stack Developer, Virtual Assistant & Tech Educator
               </p>
+              <div className="flex gap-3">
+                <a href="https://github.com/excelchiemeke" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
+                  <Github className="h-5 w-5" />
+                </a>
+                <a href="https://linkedin.com/in/excelchiemeke" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="https://twitter.com/excelchiemeke" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
+                  <Twitter className="h-5 w-5" />
+                </a>
+              </div>
             </div>
             
             <div>

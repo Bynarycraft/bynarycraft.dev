@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import profileImg from "@/assets/profile.jpg";
+import schoexLogo from "@/assets/realogo.jpg";
 
 const Home = () => {
   return (
@@ -11,10 +13,12 @@ const Home = () => {
           <div className="card-portfolio sticky top-32">
             <span className="pill-badge mb-6">Excel Chiemeke</span>
             
-            <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden mb-6 bg-gradient-to-br from-accent/20 to-accent-orange/20">
-              <div className="absolute inset-0 flex items-center justify-center text-6xl">
-                👨‍💻
-              </div>
+            <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden mb-6 shadow-lg ring-1 ring-border">
+              <img 
+                src={profileImg} 
+                alt="Excel Chiemeke" 
+                className="w-full h-full object-cover"
+              />
             </div>
             
             <h1 className="mb-4">Full-Stack Developer, Virtual Assistant & Tech Educator</h1>
@@ -52,11 +56,22 @@ const Home = () => {
               </a>
             </div>
             
-            <div className="flex flex-wrap gap-2 mb-6">
-              {["HTML", "CSS", "JavaScript", "React", "Node.js", "AI"].map((tech) => (
-                <span key={tech} className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs font-medium">
-                  {tech}
-                </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+              {[
+                { name: "React", icon: "⚛️" },
+                { name: "Node.js", icon: "🟢" },
+                { name: "TypeScript", icon: "🔷" },
+                { name: "Tailwind", icon: "🎨" },
+                { name: "Solidity", icon: "💎" },
+                { name: "AI/ML", icon: "🤖" }
+              ].map((tech) => (
+                <div 
+                  key={tech.name} 
+                  className="card-portfolio p-3 text-center hover:scale-105 transition-transform"
+                >
+                  <div className="text-2xl mb-1">{tech.icon}</div>
+                  <div className="text-xs font-medium text-foreground">{tech.name}</div>
+                </div>
               ))}
             </div>
             
@@ -110,8 +125,12 @@ const Home = () => {
                 </Link>
               </div>
               
-              <div className="w-full aspect-video rounded-2xl bg-gradient-to-br from-accent-green/20 to-accent/20 flex items-center justify-center text-4xl">
-                📚
+              <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg ring-1 ring-border">
+                <img 
+                  src={schoexLogo} 
+                  alt="De Bynary SchoEx" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             
