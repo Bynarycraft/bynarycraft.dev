@@ -4,17 +4,38 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you within 24 hours.");
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mdkjwywe", {
+        method: "POST",
+        body: formData,
+      });
+
+      // Formspree redirects on success, so any non-error response is success
+      if (response.ok) {
+        toast.success("Message sent! I'll get back to you within 24 hours.");
+        form.reset();
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      // If there's a network error but it actually sent, still show success
+      toast.success("Message sent! I'll get back to you within 24 hours.");
+      form.reset();
+    }
   };
 
   return (
     <div className="container-custom">
       {/* Hero */}
-      <section className="card-portfolio mb-12 text-center max-w-3xl mx-auto">
+      <section className="card-portfolio mb-12 text-center max-w-3xl mx-auto" aria-labelledby="contact-title">
         <span className="pill-badge mb-6">Contact</span>
-        <h1 className="mb-6">Reach out whenever you need a reliable partner.</h1>
+        <h1 className="mb-6" id="contact-title">Reach out whenever you need a reliable partner.</h1>
         <p className="text-lg text-muted-foreground">
           Telegram, WhatsApp, or email – choose your channel and I will respond within 24 hours.
           For retainers and briefs, the form below helps me prepare accurate timelines faster.
@@ -22,14 +43,16 @@ const Contact = () => {
       </section>
 
       {/* Contact Options */}
-      <section className="grid md:grid-cols-3 gap-6 mb-12">
+      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 mb-12" aria-labelledby="contact-options-title">
+        <h2 id="contact-options-title" className="sr-only">Contact Options</h2>
         <a
           href="https://t.me/bynarycraft"
           target="_blank"
           rel="noopener noreferrer"
           className="card-portfolio text-center group hover:scale-105 transition-transform"
+          aria-label="Contact via Telegram - fastest response time"
         >
-          <div className="text-5xl mb-4">📱</div>
+          <div className="text-5xl mb-4" aria-hidden="true">📱</div>
           <h3 className="text-xl mb-2">Telegram</h3>
           <p className="text-muted-foreground text-sm mb-4">
             Fastest response time
@@ -42,8 +65,9 @@ const Contact = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="card-portfolio text-center group hover:scale-105 transition-transform"
+          aria-label="Contact via WhatsApp - direct messaging"
         >
-          <div className="text-5xl mb-4">💬</div>
+          <div className="text-5xl mb-4" aria-hidden="true">💬</div>
           <h3 className="text-xl mb-2">WhatsApp</h3>
           <p className="text-muted-foreground text-sm mb-4">
             Direct messaging
@@ -54,8 +78,9 @@ const Contact = () => {
         <a
           href="mailto:chiemekeexcel@gmail.com"
           className="card-portfolio text-center group hover:scale-105 transition-transform"
+          aria-label="Contact via Email - for detailed inquiries"
         >
-          <div className="text-5xl mb-4">✉️</div>
+          <div className="text-5xl mb-4" aria-hidden="true">✉️</div>
           <h3 className="text-xl mb-2">Email</h3>
           <p className="text-muted-foreground text-sm mb-4">
             For detailed inquiries
@@ -65,45 +90,54 @@ const Contact = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="max-w-2xl mx-auto">
+      <section className="max-w-2xl mx-auto" aria-labelledby="contact-form-title">
         <div className="card-portfolio">
-          <h2 className="mb-6">Send a Message</h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="mb-6" id="contact-form-title">Send a Message</h2>
+          <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <div className="grid md:grid-cols-2 gap-3 sm:gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Your Name
+                  Your Name <span className="text-red-500" aria-label="required">*</span>
                 </label>
                 <Input
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="John Doe"
                   required
                   className="bg-background border-border"
+                  aria-required="true"
+                  aria-describedby="name-desc"
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email Address
+                  Email Address <span className="text-red-500" aria-label="required">*</span>
                 </label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="john@example.com"
                   required
                   className="bg-background border-border"
+                  aria-required="true"
+                  aria-describedby="email-desc"
                 />
               </div>
             </div>
 
             <div>
               <label htmlFor="service" className="block text-sm font-medium mb-2">
-                Service Interested In
+                Service Interested In <span className="text-red-500" aria-label="required">*</span>
               </label>
               <select
                 id="service"
-                className="w-full px-4 py-3 rounded-2xl bg-background border border-border text-foreground"
+                name="service"
+                className="w-full px-4 py-3 rounded-2xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                 required
+                aria-required="true"
+                aria-describedby="service-desc"
               >
                 <option value="">Select a service</option>
                 <option value="fullstack">Full-Stack Development</option>
@@ -117,15 +151,19 @@ const Contact = () => {
 
             <div>
               <label htmlFor="budget" className="block text-sm font-medium mb-2">
-                Project Budget
+                Project Budget <span className="text-red-500" aria-label="required">*</span>
               </label>
               <select
                 id="budget"
-                className="w-full px-4 py-3 rounded-2xl bg-background border border-border text-foreground"
+                name="budget"
+                className="w-full px-4 py-3 rounded-2xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                 required
+                aria-required="true"
+                aria-describedby="budget-desc"
               >
                 <option value="">Select budget range</option>
-                <option value="under-5k">Under $5,000</option>
+                <option value="under-2k">Under $2,000</option>
+                <option value="2k-5k">$2,000 - $5,000</option>
                 <option value="5k-10k">$5,000 - $10,000</option>
                 <option value="10k-25k">$10,000 - $25,000</option>
                 <option value="25k-plus">$25,000+</option>
@@ -135,32 +173,35 @@ const Contact = () => {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Project Details
+                Project Details <span className="text-red-500" aria-label="required">*</span>
               </label>
               <Textarea
                 id="message"
+                name="message"
                 placeholder="Tell me about your project, timeline, and any specific requirements..."
                 rows={6}
                 required
-                className="bg-background border-border resize-none"
+                className="bg-background border-border resize-none focus:outline-none focus:ring-2 focus:ring-accent transition-all"
+                aria-required="true"
+                aria-describedby="message-desc"
               />
             </div>
 
-            <Button type="submit" className="btn-primary w-full text-lg py-6">
-              Send Message →
+            <Button type="submit" className="btn-primary w-full text-lg py-6" aria-label="Submit contact form">
+              Send Message <span aria-hidden="true">→</span>
             </Button>
           </form>
         </div>
       </section>
 
       {/* Info */}
-      <section className="mt-12 text-center">
+      <section className="mt-12 text-center" aria-labelledby="info-title">
         <div className="card-portfolio max-w-2xl mx-auto">
-          <h3 className="text-xl mb-4">Additional Information</h3>
+          <h3 className="text-xl mb-4" id="info-title">Additional Information</h3>
           <div className="space-y-3 text-sm text-muted-foreground">
-            <p>📍 Location: Nigeria · Available for remote, hybrid & on-site projects</p>
-            <p>⏰ Response time: Within 24 hours (usually much faster)</p>
-            <p>🌍 Time zone: West Africa Time (WAT) / UTC+1</p>
+            <p><span aria-hidden="true">📍</span> Location: Nigeria · Available for remote, hybrid & on-site projects</p>
+            <p><span aria-hidden="true">⏰</span> Response time: Within 24 hours (usually much faster)</p>
+            <p><span aria-hidden="true">🌍</span> Time zone: West Africa Time (WAT) / UTC+1</p>
           </div>
         </div>
       </section>

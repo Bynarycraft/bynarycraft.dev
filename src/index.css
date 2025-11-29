@@ -19,16 +19,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 20%;
     
-    --primary: 223 47% 60%;
+    --primary: 270 79% 50%;
     --primary-foreground: 0 0% 100%;
     
     --secondary: 210 40% 96%;
-    --secondary-foreground: 223 47% 60%;
+    --secondary-foreground: 270 79% 50%;
     
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
     
-    --accent: 223 47% 60%;
+    --accent: 270 79% 50%;
     --accent-foreground: 0 0% 100%;
     
     --accent-orange: 24 95% 53%;
@@ -39,7 +39,7 @@ All colors MUST be HSL.
     
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 223 47% 60%;
+    --ring: 270 79% 50%;
     
     --radius: 1.75rem;
     
@@ -83,10 +83,10 @@ All colors MUST be HSL.
     
     --border: 230 20% 12%;
     --input: 230 20% 12%;
-    --ring: 223 47% 60%;
+    --ring: 270 79% 50%;
     
     /* Dark mode custom tokens */
-    --gradient-bg: radial-gradient(circle at top, hsl(230, 25%, 10%) 0%, hsl(230, 25%, 5%) 60%, hsl(230, 30%, 3%) 100%);
+    --gradient-bg: radial-gradient(circle at top, hsl(270, 30%, 8%) 0%, hsl(270, 25%, 4%) 60%, hsl(270, 30%, 2%) 100%);
     --shadow-sm: 0 1px 3px hsla(0, 0%, 0%, 0.3);
     --shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.4);
     --shadow-lg: 0 20px 40px hsla(223, 47%, 60%, 0.3);
@@ -111,15 +111,15 @@ All colors MUST be HSL.
   }
   
   h1 {
-    @apply text-4xl lg:text-5xl;
+    @apply text-3xl sm:text-4xl lg:text-5xl;
   }
   
   h2 {
-    @apply text-3xl lg:text-4xl;
+    @apply text-2xl sm:text-3xl lg:text-4xl;
   }
   
   h3 {
-    @apply text-2xl lg:text-3xl;
+    @apply text-xl sm:text-2xl lg:text-3xl;
   }
 }
 
@@ -129,7 +129,7 @@ All colors MUST be HSL.
   }
   
   .card-portfolio {
-    @apply bg-card/80 backdrop-blur-sm rounded-[28px] border border-border p-6 lg:p-8;
+    @apply bg-card/80 backdrop-blur-sm rounded-[28px] border border-border p-4 sm:p-6 lg:p-8;
     @apply transition-all duration-300 ease-out;
     box-shadow: var(--shadow-sm);
   }
@@ -140,12 +140,6 @@ All colors MUST be HSL.
     background: hsl(var(--card));
   }
   
-  @media (max-width: 768px) {
-    .card-portfolio {
-      @apply p-4 lg:p-6;
-    }
-  }
-  
   .pill-badge {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-full;
     @apply bg-accent/10 border border-accent/20 text-accent text-sm font-medium;
@@ -154,21 +148,26 @@ All colors MUST be HSL.
   .btn-portfolio {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3;
     @apply rounded-full font-semibold transition-all duration-300;
+    min-height: 44px;
+    min-width: 44px;
   }
   
   .btn-primary {
     @apply btn-portfolio bg-accent text-accent-foreground;
     @apply hover:scale-105 hover:shadow-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
   }
   
   .btn-secondary {
     @apply btn-portfolio bg-secondary text-secondary-foreground border border-border;
     @apply hover:bg-accent hover:text-accent-foreground hover:border-accent;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
   }
   
   .btn-ghost {
     @apply btn-portfolio bg-transparent text-muted-foreground;
     @apply hover:text-foreground hover:bg-muted;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
   }
 }
 
@@ -216,5 +215,35 @@ All colors MUST be HSL.
   
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+/* Accessibility & Mobile touch-target utilities */
+@layer utilities {
+  /* Respect reduced motion: prefer no heavy animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-pulse-glow {
+      animation: none !important;
+    }
+  }
+
+  /* Focus-visible enhancements for keyboard users */
+  .focus-ring:focus-visible {
+    outline: 3px solid hsl(var(--ring) / 0.18);
+    outline-offset: 3px;
+  }
+
+  /* Larger touch targets for mobile (min 44x44 recommended) */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Utility to improve legibility on small screens */
+  .fluid-text {
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
   }
 }

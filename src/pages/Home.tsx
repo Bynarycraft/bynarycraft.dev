@@ -1,37 +1,40 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.jpg";
-import schoexLogo from "@/assets/realogo.jpg";
+import TechIconGrid from "@/components/TechIconGrid";
 
 const Home = () => {
   return (
     <div className="container-custom">
       {/* Hero Section */}
-      <section className="py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <section className="py-8 sm:py-12 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Left: Profile */}
-          <div className="card-portfolio sticky top-32">
+          <div className="card-portfolio sticky top-32 animate-fade-in-up">
             <span className="pill-badge mb-6">Excel Chiemeke</span>
-            
+
             <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden mb-6 shadow-lg ring-1 ring-border">
-              <img 
-                src={profileImg} 
-                alt="Excel Chiemeke" 
+              <img
+                src={profileImg}
+                alt="Excel Chiemeke"
                 className="w-full h-full object-cover"
               />
             </div>
-            
-            <h1 className="mb-4">Full-Stack Developer, Virtual Assistant & Tech Educator</h1>
-            
+
+            <h1 className="mb-4">Full-Stack Developer, Virtual Assistant & Tech Tutor</h1>
+
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              I build modern web apps, streamline operations for busy founders, and train people at my growing tech startup <strong className="text-foreground">De Bynary SchoEx</strong>. At SchoEx I teach learners how to use a computer — from typing basics and Microsoft Office to professional workflows that prepare them for advanced tech courses and careers.
+            </p>
+
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              I build modern web applications, streamline operations for busy founders, and train teams through{" "}
-              <strong className="text-foreground">De Bynary SchoEx</strong>. With 10 years in tech and 3+ years in Web3 communities, I deliver fast, reliable solutions.
+              I'm an ALX-certified Virtual Assistant, tech educator, community professional (moderator, community manager), full-stack web developer, technical content writer, and tech consultant who helps people discover the right path into tech.
             </p>
             
             <div className="space-y-4 mb-6">
               <div className="flex items-start gap-3">
                 <span className="text-xl">💻</span>
-                <p className="text-sm text-muted-foreground">React · Node.js · Tailwind · Foundry · Solidity</p>
+                <p className="text-sm text-muted-foreground">React · Node.js · Tailwind · Python</p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-xl">🤖</span>
@@ -39,7 +42,7 @@ const Home = () => {
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-xl">🌐</span>
-                <p className="text-sm text-muted-foreground">Web3 mod, community manager & trusted Twitter/X space host</p>
+                <p className="text-sm text-muted-foreground">Community moderator, community manager & trusted Twitter/X space host</p>
               </div>
             </div>
             
@@ -56,26 +59,7 @@ const Home = () => {
               </a>
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
-              {[
-                { name: "React", icon: "⚛️" },
-                { name: "Node.js", icon: "🟢" },
-                { name: "TypeScript", icon: "🔷" },
-                { name: "Tailwind", icon: "🎨" },
-                { name: "Solidity", icon: "💎" },
-                { name: "AI/ML", icon: "🤖" }
-              ].map((tech) => (
-                <div 
-                  key={tech.name} 
-                  className="card-portfolio p-3 text-center hover:scale-105 transition-transform"
-                >
-                  <div className="text-2xl mb-1">{tech.icon}</div>
-                  <div className="text-xs font-medium text-foreground">{tech.name}</div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="flex flex-col gap-2">
+            <div className="space-y-3">
               <Link to="/about" className="text-accent hover:underline text-sm font-medium">
                 See full journey →
               </Link>
@@ -85,57 +69,67 @@ const Home = () => {
             </div>
           </div>
           
-          {/* Right: SchoEx */}
+          {/* Right: Content Stack */}
           <div className="space-y-6">
-            <div className="card-portfolio bg-card-dark">
-              <span className="pill-badge mb-4">De Bynary SchoEx</span>
-              
-              <h2 className="mb-4">School of Excellence</h2>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                A tech education platform training developers, virtual assistants, and Web3 community managers.
-                We provide structured programs with hands-on projects and real-world experience.
-              </p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <span className="text-xl">👥</span>
-                  <p className="text-sm text-muted-foreground">500+ students trained in coding and productivity</p>
+            {/* Skill Cards: split frontend / backend / tools */}
+            <div className="card-portfolio animate-fade-in-up">
+              <h3 className="mb-4 text-xl">Tech Stacks</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="p-4 rounded-lg bg-card/60 border border-border">
+              <div className="text-m font-medium mb-2">Tech Stacks</div>
+              <div className="text-m text-muted-foreground">Next.js · React · Tailwind · TypeScript · JavaScript · Bootstrap</div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-xl">⚡</span>
-                  <p className="text-sm text-muted-foreground">AI-powered curriculum and practical exercises</p>
+                <div className="p-4 rounded-lg bg-card/60 border border-border">
+              <div className="text-m font-medium mb-2">Backend & Databases</div>
+              <div className="text-m text-muted-foreground">Node.js · Python · MongoDB · PostgreSQL · REST APIs</div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-xl">🔐</span>
-                  <p className="text-sm text-muted-foreground">Web3 security, compliance, and moderation training</p>
+                <div className="p-4 rounded-lg bg-card/60 border border-border">
+                <div className="text-m font-medium mb-2">Community & Operations</div>
+                <div className="text- text-muted-foreground">Community Moderation · Community Management · Discord/Telegram · Engagement Strategy</div>
                 </div>
               </div>
-              
-              <div className="flex flex-wrap gap-3 mb-6">
-                <a href="mailto:debynaryschoex@gmail.com">
-                  <Button className="btn-secondary">
-                    Contact SchoEx
-                  </Button>
-                </a>
-                <Link to="/about#schoex">
-                  <Button variant="ghost" className="btn-ghost">
-                    See programs
-                  </Button>
-                </Link>
-              </div>
-              
-              <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg ring-1 ring-border">
-                <img 
-                  src={schoexLogo} 
-                  alt="De Bynary SchoEx" 
-                  className="w-full h-full object-cover"
-                />
+
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-card/60 border border-border">
+                  <div className="text-m font-medium mb-1">Security</div>
+                  <div className="text-m text-muted-foreground">Strong fundamentals in cybersecurity; ongoing learning toward becoming a cybersecurity expert.</div>
+                </div>
+                <div className="p-3 rounded-lg bg-card/60 border border-border">
+                  <div className="text-m font-medium mb-1">Content & Writing</div>
+                  <div className="text-m text-muted-foreground">Technical content writing focused on Web3 projects, tutorials and product copy.</div>
+                </div>
               </div>
             </div>
-            
+
+            {/* Tools & VA Tools */}
+            <div className="card-portfolio animate-fade-in-up">
+              <h4 className="mb-3 text-lg">Tech & Dev Tools</h4>
+              <TechIconGrid
+                items={[
+                  { id: "react", name: "React" },
+                  { id: "next", name: "Next.js" },
+                  { id: "ts", name: "TypeScript" },
+                  { id: "tailwind", name: "Tailwind" },
+                  { id: "node", name: "Node.js" },
+                  { id: "github", name: "GitHub" },
+                ]}
+              />
+
+              <h4 className="mb-3 text-lg mt-6">VA & Productivity Tools</h4>
+              <TechIconGrid
+                items={[
+                  { id: "notion", name: "Notion" },
+                  { id: "calendly", name: "Calendly" },
+                  { id: "vercel", name: "Vercel" },
+                  { id: "netlify", name: "Netlify" },
+                  { id: "ai", name: "AI/Prompting" },
+                  { id: "git", name: "Git" },
+                ]}
+              />
+            </div>
+
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="card-portfolio text-center">
                 <div className="text-3xl font-bold text-accent mb-2">10+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
@@ -144,6 +138,20 @@ const Home = () => {
                 <div className="text-3xl font-bold text-accent mb-2">500+</div>
                 <div className="text-sm text-muted-foreground">Students Trained</div>
               </div>
+            </div>
+
+            {/* CTA Links */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <Link to="/services" className="card-portfolio text-center group hover:scale-105 transition-transform">
+                <div className="text-3xl mb-3">🎯</div>
+                <div className="text-sm font-medium">Services</div>
+                <div className="text-xs text-muted-foreground mt-1">View all offerings</div>
+              </Link>
+              <Link to="/contact" className="card-portfolio text-center group hover:scale-105 transition-transform">
+                <div className="text-3xl mb-3">✉️</div>
+                <div className="text-sm font-medium">Get in Touch</div>
+                <div className="text-xs text-muted-foreground mt-1">Start a project</div>
+              </Link>
             </div>
           </div>
         </div>
