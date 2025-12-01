@@ -20,6 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
     { path: "/about", label: "About", icon: "👤" },
     { path: "/services", label: "Services", icon: "⚡" },
     { path: "/portfolio", label: "Portfolio", icon: "💼" },
+    { path: "/virtual-assistant", label: "VA Services", icon: "📋" },
     { path: "/schoex", label: "SchoEx", icon: "📚" },
     { path: "/contact", label: "Contact", icon: "💬" },
   ];

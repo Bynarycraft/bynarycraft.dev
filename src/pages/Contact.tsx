@@ -153,22 +153,16 @@ const Contact = () => {
               <label htmlFor="budget" className="block text-sm font-medium mb-2">
                 Project Budget <span className="text-red-500" aria-label="required">*</span>
               </label>
-              <select
+              <Input
                 id="budget"
                 name="budget"
-                className="w-full px-4 py-3 rounded-2xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-all"
+                type="text"
+                placeholder="e.g., $5,000 - $10,000 or Monthly Retainer"
                 required
+                className="bg-background border-border"
                 aria-required="true"
                 aria-describedby="budget-desc"
-              >
-                <option value="">Select budget range</option>
-                <option value="under-2k">Under $2,000</option>
-                <option value="2k-5k">$2,000 - $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k-plus">$25,000+</option>
-                <option value="retainer">Monthly Retainer</option>
-              </select>
+              />
             </div>
 
             <div>

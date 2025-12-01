@@ -25,13 +25,6 @@ const SchoEx = () => {
       topics: ["Personalized Roadmaps", "Career Guidance", "Tech Mindset", "Tooling & Resources", "Tech Onboarding"]
     },
     {
-      icon: "⚙️",
-      title: "Virtual Assistant Certification",
-      duration: "8 weeks",
-      description: "Professional VA training. Calendar management, email handling, project coordination, and automation.",
-      topics: ["Admin Skills", "Time Management", "Tools Mastery", "Client Relations", "Automation"]
-    },
-    {
       icon: "🤝",
       title: "Community Management Essentials",
       duration: "6 weeks",
@@ -44,6 +37,13 @@ const SchoEx = () => {
       duration: "4 weeks",
       description: "Leverage AI tools and automation. ChatGPT, Zapier, Make, and workflow optimization.",
       topics: ["AI Prompting", "Workflow Automation", "AI Tools", "Productivity Stacks", "Data Protection"]
+    },
+    {
+      icon: "🚀",
+      title: "Digital Literacy Bootcamp",
+      duration: "8 weeks",
+      description: "Comprehensive digital skills training for teens and adults. From Internet basics to digital citizenship.",
+      topics: ["Digital Safety", "Email & Cloud", "Online Research", "Digital Etiquette", "Cybersecurity Basics"]
     }
   ];
 
@@ -70,10 +70,10 @@ const SchoEx = () => {
             </div>
             
             <p className="text-lg text-muted-foreground mb-6">
-              Democratizing tech education. We train developers, virtual assistants, and community managers through hands-on, project-based learning that prepares you for real-world success.
+              Democratizing tech education. We offer comprehensive digital literacy training, computer fundamentals, and tech advisory programs designed to empower learners at every level.
             </p>
             <p className="text-muted-foreground mb-6">
-              At SchoEx, you're not just learning theory — you're building skills that matter. From computer basics to advanced development, we bridge the gap between aspiration and achievement.
+              At SchoEx, you're not just learning theory — you're building skills that matter. From computer basics to advanced digital proficiency, we bridge the gap between aspiration and achievement.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="mailto:debynaryschoex@gmail.com">
@@ -195,38 +195,38 @@ const SchoEx = () => {
         <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
           <div>
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">🎓</span> Technical Skills
+              <span className="text-2xl">💻</span> Digital Literacy
             </h3>
             <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>• Programming (Python, JavaScript, TypeScript)</li>
-              <li>• Frontend Development (React, Next.js)</li>
-              <li>• Backend Development (Node.js, Databases)</li>
-              <li>• Web3 & Smart Contracts</li>
-              <li>• Cloud Deployment</li>
+              <li>• Computer Basics & Fundamentals</li>
+              <li>• Operating Systems Mastery</li>
+              <li>• Internet Safety & Etiquette</li>
+              <li>• Email & Communication Tools</li>
+              <li>• File Management & Organization</li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">💼</span> Professional Skills
+              <span className="text-2xl">📊</span> Office & Productivity
             </h3>
             <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>• Project Management</li>
-              <li>• Communication & Presentation</li>
-              <li>• Problem Solving</li>
-              <li>• Team Collaboration</li>
-              <li>• Time Management</li>
+              <li>• Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+              <li>• Data Entry & Spreadsheet Skills</li>
+              <li>• Document Formatting & Presentation</li>
+              <li>• Productivity Tools (Notion, Trello)</li>
+              <li>• Time Management & Organization</li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">🚀</span> Career Preparation
+              <span className="text-2xl">🎓</span> Career Preparation
             </h3>
             <ul className="space-y-2 text-muted-foreground text-sm">
+              <li>• Tech Career Guidance & Mentorship</li>
               <li>• Resume & Portfolio Building</li>
               <li>• Interview Preparation</li>
-              <li>• LinkedIn Optimization</li>
-              <li>• Freelancing Basics</li>
-              <li>• Negotiation Skills</li>
+              <li>• Digital Citizenship & Cybersecurity</li>
+              <li>• Continuous Learning Pathways</li>
             </ul>
           </div>
         </div>

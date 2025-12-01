@@ -11,6 +11,7 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import SchoEx from "./pages/SchoEx";
+import VirtualAssistant from "./pages/VirtualAssistant";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/schoex" element={<SchoEx />} />
+              <Route path="/virtual-assistant" element={<VirtualAssistant />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
